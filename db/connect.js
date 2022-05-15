@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
-const password = require("./secrets");
-const connectionString = `mongodb+srv://temi:${password}@nodeexpressprojects.3uktq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const connectDB = (url) => {
+  return mongoose.connect(url, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: true,
+    useUnifiedTopology: true,
+  });
+};
 
-mongoose.connect();
+module.exports = connectDB;
