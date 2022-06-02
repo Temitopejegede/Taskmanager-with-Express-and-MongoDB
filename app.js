@@ -7,15 +7,15 @@ const errorHandlerMiddleware = require("./middlewear/error-handler");
 
 require("dotenv").config();
 
-//middleware
+
 app.use(express.static("./public"));
 app.use(express.json());
 
 //routes
 app.use("/api/v1/tasks", tasks);
 
+//middleware
 app.use(notFound);
-
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
